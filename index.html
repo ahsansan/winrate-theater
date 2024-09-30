@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Winrate Theater JKT48 Kamu</title>
+    <link rel="icon" type="image/x-icon" href="assets/icon.png">
+    <script src="crypto-js.min.js" defer></script>
+    <link href="./dist/output.css" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <div class="max-w-[800px] block mx-auto min-h-[80vh] px-2">
+            <!-- Judul -->
+            <h2 id="name-container" class="mt-14 text-[#ff005f] uppercase font-bold text-xl md:text-2xl text-center underline"></h2>
+            <!-- Last Updated -->
+            <div class="mb-10">
+                <p class="text-xs md:text-sm text-center ml-1 text-[#ff005f]">Data ini diambil pada <span id="last-update"></span></p>
+            </div>
+            <!-- Tabel Setlist -->
+            <div class="w-full overflow-x-auto">
+                <table class="table-auto w-full">
+                    <thead class="text-xs text-[#ff005f] uppercase bg-[#fdd9e8]">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left">Setlist</th>
+                            <th scope="col" class="px-6 py-3 text-left">Total Apply</th>
+                            <th scope="col" class="px-6 py-3 text-left">Total Menang</th>
+                            <th scope="col" class="px-6 py-3 text-left">Total Kalah</th>
+                            <th scope="col" class="px-6 py-3 text-left">Winrate</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-container" class="bg-white"></tbody>
+                </table>
+            </div>
+    
+            <!-- Tabel Total Keseluruhan -->
+            <div id="summary-table" class="text-xs font-bold text-[#ff005f] uppercase bg-[#fdd9e8] mt-3 px-6 py-3">
+                <h3>Total Keseluruhan</h3>
+            </div>
+            <div id="summary-container" class="bg-white px-6 py-4 border border-[#fdd9e8] mb-1"></div>
+        </div>
+        <!-- Footer -->
+        <div class="text-center my-5">
+            <span class="text-sm text-slate-400 font-bold italic">
+                Created by <a href="https://x.com/InsanMaritim" target="_blank" class="underline">@InsanMaritim</a>
+            </span>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
