@@ -60,6 +60,7 @@ if (encryptedResult) {
         let totalApply = 0;
         let totalMenang = 0;
         let totalKalah = 0;
+        let totalTunggu = 0;
 
         data.data.sort((a, b) => b.winrate - a.winrate);
 
@@ -75,15 +76,18 @@ if (encryptedResult) {
             dataContainer.appendChild(row);
 
             totalApply += setlist.total;
+            totalTunggu += setlist.tunggu;
             totalMenang += setlist.menang;
             totalKalah += setlist.kalah;
         });
 
-        const overallWinrate = ((totalMenang / totalApply) * 100).toFixed(2);
+        const validGacha = totalApply - totalTunggu;
+        const overallWinrate = ((totalMenang / validGacha) * 100).toFixed(2);
 
         const summaryContainer = document.getElementById('summary-container');
         summaryContainer.innerHTML = `
             <p class="text-sm">Total Apply: <span class="font-bold ml-1">${totalApply}</span></p>
+            <p class="text-sm">Menunggu Pengumuman: <span class="font-bold ml-1">${totalTunggu}</span></p>
             <p class="text-sm">Total Kemenangan: <span class="font-bold ml-1">${totalMenang}</span></p>
             <p class="text-sm">Total Kekalahan: <span class="font-bold ml-1">${totalKalah}</span></p>
             <p class="text-sm">Winrate Keseluruhan: <span class="font-bold ml-1">${overallWinrate}%</span></p>
