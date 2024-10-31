@@ -39,7 +39,7 @@ function getDateWithMinute(timeString) {
     const hour = time.getHours();
     const min = time.getMinutes();
 
-    const result = `${weekday[dayIndex]}, ${date} ${month[monthIndex]} ${year} Jam ${hour}:${min} WIB`;
+    const result = `${weekday[dayIndex]}, ${date} ${month[monthIndex]} ${year} Jam ${hour}:${min}`;
 
     return result;
 }
