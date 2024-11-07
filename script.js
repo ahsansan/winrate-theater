@@ -57,14 +57,9 @@ if (encryptedResult) {
         const dataContainer = document.getElementById('data-container');
         dataContainer.innerHTML = '';
 
-        let totalApply = 0;
-        let totalMenang = 0;
-        let totalKalah = 0;
-        let totalTunggu = 0;
+        data.data.setlist.sort((a, b) => b.winrate - a.winrate);
 
-        data.data.sort((a, b) => b.winrate - a.winrate);
-
-        data.data.forEach(setlist => {
+        data.data.setlist.forEach(setlist => {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td class="px-6 py-4 border border-[#fdd9e8] text-sm">${setlist.setlist_name}</td>
@@ -74,22 +69,16 @@ if (encryptedResult) {
                 <td class="px-6 py-4 border border-[#fdd9e8] text-sm">${setlist.winrate}%</td>
             `;
             dataContainer.appendChild(row);
-
-            totalApply += setlist.total;
-            totalTunggu += setlist.tunggu;
-            totalMenang += setlist.menang;
-            totalKalah += setlist.kalah;
         });
 
-        const validGacha = totalApply - totalTunggu;
-        const overallWinrate = ((totalMenang / validGacha) * 100).toFixed(2);
+        const overallWinrate = data.data.winrate;
 
         const summaryContainer = document.getElementById('summary-container');
         summaryContainer.innerHTML = `
-            <p class="text-sm">Total Apply: <span class="font-bold ml-1">${totalApply}</span></p>
-            <p class="text-sm">Menunggu Pengumuman: <span class="font-bold ml-1">${totalTunggu}</span></p>
-            <p class="text-sm">Total Kemenangan: <span class="font-bold ml-1">${totalMenang}</span></p>
-            <p class="text-sm">Total Kekalahan: <span class="font-bold ml-1">${totalKalah}</span></p>
+            <p class="text-sm">Total Apply: <span class="font-bold ml-1">${data.data.totalApply}</span></p>
+            <p class="text-sm">Menunggu Pengumuman: <span class="font-bold ml-1">${data.data.totalTunggu}</span></p>
+            <p class="text-sm">Total Kemenangan: <span class="font-bold ml-1">${data.data.totalMenang}</span></p>
+            <p class="text-sm">Total Kekalahan: <span class="font-bold ml-1">${data.data.totalKalah}</span></p>
             <p class="text-sm">Winrate Keseluruhan: <span class="font-bold ml-1">${overallWinrate}%</span></p>
         `;
 
