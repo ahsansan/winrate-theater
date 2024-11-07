@@ -76,7 +76,7 @@ if (encryptedResult) {
         const summaryContainer = document.getElementById('summary-container');
         summaryContainer.innerHTML = `
             <p class="text-sm">Total Apply: <span class="font-bold ml-1">${data.data.totalApply}</span></p>
-            <p class="text-sm">Menunggu Pengumuman: <span class="font-bold ml-1">${data.data.totalTunggu}</span></p>
+            <p class="text-sm">Menunggu Pengumuman: <span class="font-bold ml-1">${data.data.totalMenunggu}</span></p>
             <p class="text-sm">Total Kemenangan: <span class="font-bold ml-1">${data.data.totalMenang}</span></p>
             <p class="text-sm">Total Kekalahan: <span class="font-bold ml-1">${data.data.totalKalah}</span></p>
             <p class="text-sm">Winrate Keseluruhan: <span class="font-bold ml-1">${overallWinrate}%</span></p>
