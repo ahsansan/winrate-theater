@@ -18,7 +18,7 @@
                 <p class="text-xs md:text-sm text-center ml-1 text-[#ff005f]">Data diambil pada <span id="last-update"></span></p>
             </div>
             <!-- Tabel Setlist -->
-            <div class="w-full overflow-x-auto">
+            <div class="w-full overflow-x-auto hidden md:block" id="tabel-desktop">
                 <table class="table-auto w-full">
                     <thead class="text-xs text-[#ff005f] uppercase bg-[#fdd9e8]">
                         <tr>
@@ -31,6 +31,12 @@
                     </thead>
                     <tbody id="data-container" class="bg-white"></tbody>
                 </table>
+            </div>
+
+            <!-- Tabel Setlist -->
+            <div class="w-full overflow-x-auto flex flex-col md:hidden" id="tabel-mobile">
+                <div id="data-mobile-container">
+                </div>
             </div>
     
             <!-- Tabel Total Keseluruhan -->

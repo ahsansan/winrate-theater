@@ -36,10 +36,14 @@ function getDateWithMinute(timeString) {
     const date = time.getDate();
     const monthIndex = time.getMonth();
     const year = time.getFullYear();
-    const hour = time.getHours();
-    const min = time.getMinutes();
+    let hour = time.getHours();
+    const min = time.getMinutes().toString().padStart(2, '0');
+    const period = hour >= 12 ? "PM" : "AM";
 
-    const result = `${weekday[dayIndex]}, ${date} ${month[monthIndex]} ${year} Jam ${hour}:${min}`;
+    hour = (hour % 12) || 12;
+    const formattedHour = hour.toString().padStart(2, '0');
+
+    const result = `${weekday[dayIndex]}, ${date} ${month[monthIndex]} ${year} Jam ${formattedHour}:${min} ${period}`;
 
     return result;
 }
@@ -69,6 +73,37 @@ if (encryptedResult) {
                 <td class="px-6 py-4 border border-[#fdd9e8] text-sm">${setlist.winrate}%</td>
             `;
             dataContainer.appendChild(row);
+        });
+
+        const mobileContainer = document.getElementById("data-mobile-container");
+        data.data.setlist.forEach((setlist, index) => {
+            const htmlContent = `
+                <div id="loop-data-setlist-${index + 1}">
+                    <div id="summary-table" class="text-xs font-bold text-[#ff005f] uppercase bg-[#fdd9e8] mt-3 px-6 py-3">
+                        <h3>${setlist.setlist_name}</h3>
+                    </div>
+                    <div class="bg-white px-6 py-4 border border-[#fdd9e8] mb-1">
+                        <p>
+                            <span class="text-sm">Total Apply: </span>
+                            <span class="font-bold text-sm">${setlist.total}</span>
+                        </p>
+                        <p>
+                            <span class="text-sm">Total Kemenangan: </span>
+                            <span class="font-bold text-sm">${setlist.menang}</span>
+                        </p>
+                        <p>
+                            <span class="text-sm">Total Kekalahan: </span>
+                            <sapn class="font-bold text-sm">${setlist.kalah}</sapn>
+                        </p>
+                        <p>
+                            <span class="text-sm">Winrate Setlist: </span>
+                            <sapn class="font-bold text-sm">${setlist.winrate}%</sapn>
+                        </p>
+                    </div>
+                </div>
+            `;
+        
+            mobileContainer.innerHTML += htmlContent;
         });
 
         const overallWinrate = data.data.winrate;
