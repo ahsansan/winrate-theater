@@ -106,7 +106,7 @@ if (encryptedResult) {
             mobileContainer.innerHTML += htmlContent;
         });
 
-        const overallWinrate = data.data.winrate;
+        const overallWinrate = isNaN(data.data.winrate) ? '0%' : `${data.data.winrate}%`;
 
         const summaryContainer = document.getElementById('summary-container');
         summaryContainer.innerHTML = `
